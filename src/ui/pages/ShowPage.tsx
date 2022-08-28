@@ -56,46 +56,56 @@ const ShowPage = () => {
                 <img src={process.env.PUBLIC_URL + "back-arrow.png"} 
                 style={{ width: '40px', height: '40px', marginRight: '0.5em' }} />
             </div>
-        {item?.data[0] &&
         <div>
+        {item?.data[0]?.title && 
             <List.Item>
                 <List.Item.Meta
                 title={"Title"}
                 description={item?.data[0]?.title}
                 />
             </List.Item>
+        }
+        {item?.data[0]?.location && 
             <List.Item>
                 <List.Item.Meta
                 title={"Location"}
                 description={item?.data[0]?.location}
                 />
             </List.Item>
+        }         
+        {item?.data[0]?.photographer &&   
             <List.Item>
                 <List.Item.Meta
                 title={"Photographer"}
                 description={item?.data[0]?.photographer}
                 />
             </List.Item>
+        }
+        {item?.data[0]?.description &&   
             <List.Item>
                 <List.Item.Meta
                 title={"Description"}
                 description={item?.data[0]?.description}
                 />
             </List.Item>
+        }
+        {item?.data[0]?.keywords &&  
             <List.Item>
                 <List.Item.Meta
                 title={"Keywords"}
                 description={item?.data[0]?.keywords}
                 />
             </List.Item>
+        }
+        {item?.data[0]?.date_created &&  
             <List.Item>
                 <List.Item.Meta
                 title={"Date"}
                 description={formatDate(item?.data[0]?.date_created)}
                 />
             </List.Item>
-        </div>
         }
+        </div>
         <Loader loaded={loaded}>
             <div className="image-collection">{renderImages(item?.images)}</div>
         </Loader>
