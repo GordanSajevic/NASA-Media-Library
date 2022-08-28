@@ -2,7 +2,7 @@ import Collection, { ICollection } from '../model/Collection';
 import Item, { IItem } from '../model/Item';
 
 export interface INasaService {
-    search(query: any, yearStart: number, yearEnd: number, page: number): Promise<ICollection>;
+    search(query: any, yearStart: number, yearEnd: number): Promise<ICollection>;
     getJsonImages(item: IItem): Promise<IItem>;
 }
 
@@ -10,8 +10,8 @@ const MEDIA_TYPE = "media_type=image"
 
 const NasaService = (): INasaService => {
     return {
-        async search(query: any, yearStart: number, yearEnd: number, page: number = 1){
-            let queryString = `&q=${query}&page=${page}`;
+        async search(query: any, yearStart: number, yearEnd: number){
+            let queryString = `&q=${query}`;
             if(yearStart){
                 queryString += `&year_start=${yearStart}`
             }

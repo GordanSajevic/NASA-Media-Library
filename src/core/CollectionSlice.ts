@@ -6,7 +6,7 @@ const initialState: ICollection = {version: "", href: "", items: [], metadata: "
 const nasaService: INasaService = NasaService();
 
 export const fetchCollection = createAsyncThunk('fetchCollection', async (params: any) => {
-    const response = await nasaService.search(params.query, params.yearStart, params.yearEnd, params.page);
+    const response = await nasaService.search(params.query, params.yearStart, params.yearEnd);
     return response;
 })
 
